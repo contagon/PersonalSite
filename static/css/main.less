@@ -127,38 +127,8 @@ div.contentblock{
   }
 
   &.pilot{
-    // background: url('/static/img/cockpit_night.png');
-    // background-size: cover; 
-    div#pilot_video{
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      z-index: -1;
-
-      div#pilot_video_darker{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        opacity: 0.75;
-      }
-
-      video{
-        object-fit: cover;
-        object-position: 50% 50%;
-        @media (min-aspect-ratio: 16/9) {
-          width:100%;
-          height: auto;
-        }
-        @media (max-aspect-ratio: 16/9) {
-          width:auto;
-          height: 100%;
-        }
-      }
-    }
+    background: @blue;
+    color: @white;
   }
 
   &.engineer, &.fourohfour{
@@ -169,8 +139,8 @@ div.contentblock{
   }
 
   &.posts{
-    background: @blue;
-    color: @white;
+    background: @white;
+    color: @darkgrey;
     a{
       text-decoration: underline;
     }
