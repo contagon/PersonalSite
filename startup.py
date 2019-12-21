@@ -52,13 +52,13 @@ def post(name):
 def robots():
     return render_template('robots.txt')
 
-@app.route('/sitemap.xml')
-def sitemap():
-    today = date.today()
-    recently = date(year=today.year, month=today.month, day=1)
-    posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
-    posts.sort(key=lambda item: item['date'], reverse=True)
-    return render_template('sitemap.xml', posts=posts, today=today, recently=recently)
+# @app.route('/sitemap.xml')
+# def sitemap():
+#     today = date.today()
+#     recently = date(year=today.year, month=today.month, day=1)
+#     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
+#     posts.sort(key=lambda item: item['date'], reverse=True)
+#     return render_template('sitemap.xml', posts=posts, today=today, recently=recently)
 
 @app.errorhandler(404)
 def page_not_found(e):
