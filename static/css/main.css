@@ -91,7 +91,7 @@ header nav ul li {
   list-style-type: none;
   color: #111111;
 }
-header nav ul li.active,
+header nav ul li:active,
 header nav ul li:hover {
   color: #2A558C;
 }

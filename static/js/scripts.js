@@ -9,14 +9,14 @@ window.onload = function () {
     menu: '#fp-menu',
     verticalCentered: false,
   });
-  
+
 
 
   // grab an element
   var myElement = document.querySelector("header#header");
   // construct an instance of Headroom, passing the element
   var options = {
-    
+
   }
   headroom = new Headroom(myElement, options);
   // initialise

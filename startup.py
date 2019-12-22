@@ -42,6 +42,14 @@ def home():
     posts.sort(key=lambda item: item['date'], reverse=True)
     return render_template('home.html', posts=posts, bigheader=True)
 
+@app.route("/aboutme/")
+def aboutme():
+    return render_template('aboutme.html')
+
+@app.route("/projects/")
+def projects():
+    return render_template('projects.html')
+
 @app.route('/posts/<name>/')
 def post(name):
     path = '{}/{}'.format(POST_DIR, name)

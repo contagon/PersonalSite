@@ -2,9 +2,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Page Not Found{% endblock %} - James Harding</title>
+  <title>{% block title %}Page Not Found{% endblock %} - Testing</title>
   <meta name="description"
-    content="{% block description %}James Harding: Computer Engineer, Pilot, and Web Developer{% endblock %}">
+    content="{% block description %}Easton Potokar - BYU Master's Student{% endblock %}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -41,10 +41,10 @@
         <nav class="top_menu">
             <ul id="fp-menu">
               <li data-menuanchor="intro"><a href="/#intro">Home</a></li>
-              <li data-menuanchor="pilot"><a href="/#pilot">About Me</a></li>
-              <li data-menuanchor="engineer"><a href="/#engineer">Projects</a></li>
-              <li data-menuanchor="posts"><a href="/#posts">Blog</a></li>
-              <li data-menuanchor="connect"><a href="/#connect">Resume</a></li>
+              <li data-menuanchor="pilot" class="{{ 'active' if active_page == 'aboutme' else '' }}"><a href="/aboutme">About Me</a></li>
+              <li data-menuanchor="engineer" class="{{ 'active' if active_page == 'projects' else '' }}"><a href="/projects">Projects</a></li>
+              <li data-menuanchor="posts" class="{{ 'active' if active_page == 'posts' else '' }}"><a href="/posts">Posts</a></li>
+              <li data-menuanchor="connect" class="{{ 'active' if active_page == 'connect' else '' }}"><a href="/#connect">Connect</a></li>
             </ul>
         </nav>
       </div>
