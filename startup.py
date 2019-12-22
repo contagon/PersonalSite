@@ -50,6 +50,10 @@ def aboutme():
 def projects():
     return render_template('projects.html')
 
+@app.route("/posts/")
+def projects():
+    return render_template('posts.html')
+
 @app.route('/posts/<name>/')
 def post(name):
     path = '{}/{}'.format(POST_DIR, name)
