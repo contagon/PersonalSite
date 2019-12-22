@@ -48,11 +48,11 @@ def aboutme():
 
 @app.route("/projects/")
 def projects():
-    return render_template('projects.html')
+    return render_template('project_index.html')
 
 @app.route("/posts/")
-def projects():
-    return render_template('posts.html')
+def post_index():
+    return render_template('post_index.html')
 
 @app.route('/posts/<name>/')
 def post(name):
