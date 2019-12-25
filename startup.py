@@ -1,17 +1,21 @@
 import sys
 from flask import Flask
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, render_template_string, Markup
 from datetime import date
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
 from urllib.parse import urlparse, urlunparse
+import markdown
 
-BASE_URL = 'https://www.jamesharding.ca'
+BASE_URL = 'https://www.eastonpots.com'
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'content'
 POST_DIR = 'posts'
+PROJECT_DIR = 'projects'
+
+FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite', 'fenced_code',]
 
 app = Flask(__name__)
 flatpages = FlatPages(app)
@@ -19,14 +23,7 @@ freezer = Freezer(app)
 
 app.config.from_object(__name__)
 
-@app.before_request
-def redirect_nonwww():
-    """Redirect non-www requests to www."""
-    urlparts = urlparse(request.url)
-    if urlparts.netloc == 'jamesharding.ca':
-        urlparts_list = list(urlparts)
-        urlparts_list[1] = 'www.jamesharding.ca'
-        return redirect(urlunparse(urlparts_list), code=301)
+
 
 @app.context_processor
 def inject_ga():
@@ -34,7 +31,7 @@ def inject_ga():
 
 @app.route('/pygments.css')
 def pygments_css():
-    return pygments_style_defs('solarized-dark'), 200, {'Content-Type': 'text/css'}
+    return pygments_style_defs('native'), 200, {'Content-Type': 'text/css'}
 
 @app.route("/")
 def home():
