@@ -158,7 +158,15 @@ div.contentblock{
     background-color: @white;
     color: @darkgrey;
     padding: 50px;
-    @media (max-width: 550px) {padding: 10px;}
+    @media (max-width: 400px) {padding: 20px;}
+  }
+
+  &.gallery .container{
+    background-color: @white;
+    color: @darkgrey;
+    padding: 50px;
+    @media (min-width: 400px) {width: 95%;}
+    @media (max-width: 400px) {padding: 20px;}
   }
 
   div.contentblock_vcentre{
@@ -171,8 +179,8 @@ div.contentblock{
 
 /*Blog post styling*/
 .post{
-  font-size: 1em;
-  line-height: 1.45;
+  font-size: 0.95em;
+  line-height: 1.25;
   p{
     padding: 15px 0px 15px 0px;
     margin: 0px;
@@ -184,17 +192,17 @@ div.contentblock{
     padding-bottom: 30px;
   }
   h2{
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-size: 2.5em;
     text-align: center;
     border-bottom: 2px solid;
     padding:0px;
     margin:0px;
     clear: both;
-    @media (max-width: 1000px) {font-size: 1.7em;}
+    // @media (max-width: 1000px) {font-size: 1.7em;}
   }
   h3{
-    text-transform: uppercase;
+    // text-transform: uppercase;
     border-bottom: 2px solid;
     padding:0px 0px 0px 0px;
     margin:40px 0px 0px 0px;
@@ -260,4 +268,117 @@ div.contentblock{
   ol{
     margin: 0px 20px 0px 20px;
   }
+}
+
+/* Gallery Styling */
+.gallery{
+  font-size: 0.95em;
+  line-height: 1.25;
+  p{
+    padding: 15px 0px 15px 0px;
+    margin: 0px;
+  }
+  p:first-child{
+    padding-top: 30px;
+  }
+  p:last-child{
+    padding-bottom: 30px;
+  }
+  h2{
+    // text-transform: uppercase;
+    font-size: 2.5em;
+    text-align: center;
+    border-bottom: 2px solid;
+    padding:0px;
+    margin:0px;
+    clear: both;
+    // @media (max-width: 1000px) {font-size: 1.7em;}
+  }
+  h3{
+    // text-transform: uppercase;
+    border-bottom: 2px solid;
+    padding:0px 0px 0px 0px;
+    margin:40px 0px 0px 0px;
+    clear: both;
+  }
+  img{
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  div.fw-image{
+    width: 100%;
+    span.caption{
+      display: block;
+      text-align: center;
+      font-size: 0.8em;
+    }
+  }
+  div.hw-image-left{
+    width: 40%;
+    float: left;
+    margin: 30px;
+    span.caption{
+      display: block;
+      text-align: center;
+      font-size: 0.8em;
+    }
+  }
+  div.hw-image-right{
+    width: 40%;
+    float: right;
+    margin: 30px;
+    span.caption{
+      display: block;
+      text-align: center;
+      font-size: 0.8em;
+    }
+  }
+  div.codehilite{
+    padding: 1px 20px 1px 20px;
+  }
+
+  pre{
+    white-space: pre-wrap;
+    // overflow: scroll;
+  }
+  code{
+    background-color: #ddd;
+    padding: 5px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #ccc;
+    border-width: 1px;
+  }
+
+  a{
+    color: @darkgrey;
+  }
+  ul{
+    margin: 0px 20px 0px 20px;
+  }
+  ol{
+    margin: 0px 20px 0px 20px;
+  }
+}
+
+/* Content */
+#myBtnContainer{
+  padding: 8px;
+}
+.button{
+  width: 97% / 4;
+}
+.content {
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+}
+.item{
+  display: none;
+}
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
 }

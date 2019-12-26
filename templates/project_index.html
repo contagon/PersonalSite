@@ -3,14 +3,32 @@
 {% block description %}About Me Page{% endblock %}
 {% set active_page = "projects" %}
 {% block content %}
-<div class="contentblock post first_block">
+<div class="contentblock gallery first_block">
   <div class="container">
-    <h2>Projects</h2>
     <div class="row">
-      <div class="post twelve columns">
-        <p>I'll put a bunch of my recent projects here</p>
+      <h2>Projects</h2>
+    </div>
+    <div class="row" id="myBtnContainer">
+      <button class="button button-primary" onclick="filterSelection('all')">All</button>
+      <button class="button" onclick="filterSelection('research')">Research</button>
+      <button class="button" onclick="filterSelection('personal')">Personal</button>
+      <button class="button" onclick="filterSelection('classes')">Classes</button>
+    </div>
+    <div class="row">
+      {% for project in projects %}
+      <div class="three columns {{ project.tags }} item">
+        <a href="{{ url_for('project', name=project.path.replace('projects/', '')) }}" style="text-decoration:none;" class="internal">
+          <div class="content">
+            <!-- <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%"> -->
+            <h4>{{ project.title }}</h4>
+            <p>{{ project.description }}</p>
+            <small>{{ project.date }}</small>
+          </div>
+        </a>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>
+<script src=/static/js/filter.js></script>
 {% endblock %}

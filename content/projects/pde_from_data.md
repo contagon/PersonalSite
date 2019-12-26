@@ -1,7 +1,7 @@
 title: PDE From Data
 date: 2019-11-21
 description: Modeling a Population PDE
-tags: programming
+tags: classes
 
 
 ```python
