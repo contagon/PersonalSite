@@ -1,6 +1,6 @@
-title: Setting up my site!
-date: 2019-12-21
-description: Just getting things set up:)
+title: PDE From Data
+date: 2019-11-21
+description: Modeling a Population PDE
 tags: programming
 
 
@@ -93,11 +93,12 @@ plt.show()
 ```
 
 
-![png](/static/pde_from_data_files/pde_from_data_5_0.png)
+![png](/static/projects/pde_from_data_files/pde_from_data_6_0.png)
+
 
 Thus we define $h(t)$
-$$ h(t) = \sum_{x=15}^{45} b_{rate}( x )u(x, t-1) $$
-Which is essentially a sum of all the babies that each age group will produce. In the case of continuous data this could be transformed into an integral by interpolating $b_{rate}$.
+$$ h(t) = \sum\_{x=15}^{45} b\_{rate}( x )u(x, t-1) $$
+Which is essentially a sum of all the babies that each age group will produce. In the case of continuous data this could be transformed into an integral by interpolating $b\_{rate}$.
 
 Next, to find $f(x)$ is to simply find the death rate. We noted that $f(x) = 1 - \frac{u(x+1,t+1)}{u(x,t)}$, since this gives us the percentage of people who perished each year. Since we have data, we simply performed this and then averaged it for each age.
 
@@ -119,19 +120,19 @@ plt.show()
 ```
 
 
-![png](/static/pde_from_data_files/pde_from_data_7_0.png)
+![png](/static/projects/pde_from_data_files/pde_from_data_8_0.png)
 
 
-Thus we define $f(x)$ as
-$$ f(x) = d_{rate} ( x ) $$
-Note as before, if we would like this to be continuous, we could change our $d_{rate}$ by interpolating, but since we'll apply finite difference to it, there's not much value in that for us. (Note this also appears to be the pdf of Beta(1/2, 1/2) which may be how the data was formed).
+Thus we define $f(x)$ as 
+$$ f(x) = d\_{rate} ( x ) $$
+Note as before, if we would like this to be continuous, we could change our $d\_{rate}$ by interpolating, but since we'll apply finite difference to it, there's not much value in that for us. (Note this also appears to be the pdf of Beta(1/2, 1/2) which may be how the data was formed). 
 
 # Part 2
 
 Now we use a finite difference scheme to solve for the next 30 years. It goes as follows:
 
 \begin{align}
-&u\_x + u_t + f(x)u = 0 \\\\
+&u_x + u_t + f(x)u = 0 \\\\
 \implies &\frac{U^{n}\_{j} - U^{n}\_{j-1}}{h} + \frac{U^{n+1}\_{j} - U^{n}\_{j}}{k} + f(x)U^{n}\_{j} = 0\\\\
 \implies &U^{n+1}\_{j} = U^{n}\_{j}(1 - f(x)k) - \frac{k}{h}(U^{n}\_{j} - U^{n}\_{j-1})
 \end{align}
@@ -181,7 +182,7 @@ plt.show()
 ```
 
 
-![png](/static/pde_from_data_files/pde_from_data_11_0.png)
+![png](/static/projects/pde_from_data_files/pde_from_data_12_0.png)
 
 
 This looks really good!
@@ -205,4 +206,9 @@ b_rate[15:45] = birth_rate
 np.save("birth_rate.npy", b_rate.reshape((1,100)))
 d_rates = np.append(d_rates, 1)
 np.save("death_rate.npy", d_rates.reshape((1,100)))
+```
+
+
+```python
+
 ```

@@ -33,7 +33,16 @@
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <p>Some of my recent projects can be found <a href="/projects">here</a>.</p>
+            <h2>Some of my recent thoughts...</h2>
+            {% for project in projects %}
+            <p>
+              <a href="{{ url_for('project', name=project.path.replace('projects/', '')) }}" class="internal">
+                {{ project.title }}
+              </a> -
+              <small>{{ project.date }}</small>
+            </p>
+            {% endfor %}
+            <p>Or see all projects <a href="/projects">here</a>.</p>
           </div>
         </div>
       </div>
