@@ -9,7 +9,7 @@ from scipy.io import loadmat
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
-# %matplotlib widget
+## %matplotlib widget
 from mpl_toolkits import mplot3d
 import matplotlib.pyplot as plt
 from scipy import optimize as opt
@@ -28,17 +28,17 @@ def pltAttr(x='', y='', title=None, legend='upper right', save=None):
 
 
 ```python
-#load data
+##load data
 data = loadmat('population_density_data.mat')
 data = data['M_students']
 
-#make appropriate meshgrid
+##make appropriate meshgrid
 x = np.arange(1, 101)
 t = np.arange(0, 50)
 X, T = np.meshgrid(x, t)
 ```
 
-# Part 1
+## Part 1
 
 We define our PDE as:
 
@@ -56,20 +56,20 @@ We noted that $h(t)$ was just all age 0 (newborns) given at all times. This mean
 
 
 ```python
-#starting at year one (avoiding weird blip)  and ending before the last year (since we don't have number ot map it to)
-#take 15-45 years olds and number of births
+##starting at year one (avoiding weird blip)  and ending before the last year (since we don't have number ot map it to)
+##take 15-45 years olds and number of births
 X = data[1:-1,15:45]
-#make sure to increment y since it affects the next year
+##make sure to increment y since it affects the next year
 y = data[2:,0]
 
-#perform linear regression from age to number of births
+##perform linear regression from age to number of births
 results = sm.OLS(y, X).fit_regularized(alpha=10**-20, L1_wt=0)
 birth_rate = results.params
 
-#zero any that ended up *slightly* below 0
+##zero any that ended up *slightly* below 0
 birth_rate[birth_rate < 0] = 0
 
-#calculate MSE
+##calculate MSE
 mse = np.sum( (y - np.sum(X*birth_rate, axis=1))**2 )
 print(f"MSE = {mse}")
 ```
@@ -79,7 +79,7 @@ print(f"MSE = {mse}")
 
 
 ```python
-#check out our fit
+##check out our fit
 plt.figure(figsize=(12,5))
 plt.subplot(121)
 plt.plot(np.arange(2, 50), y, label="Actual")
@@ -104,7 +104,7 @@ Next, to find $f(x)$ is to simply find the death rate. We noted that $f(x) = 1 -
 
 
 ```python
-#find death rate
+##find death rate
 ages = np.arange(0,99)
 d_rates = []
 for age in ages:
@@ -112,7 +112,7 @@ for age in ages:
     d_rates.append( temp.mean() )  
 d_rates = np.array(d_rates)
 
-#plot it to show us
+##plot it to show us
 plt.figure(figsize=(10,5))
 plt.bar(ages, d_rates)
 pltAttr('Age', 'Death Rate', "Death Rate over Age", legend=None)
@@ -127,7 +127,7 @@ Thus we define $f(x)$ as
 $$ f(x) = d\_{rate} ( x ) $$
 Note as before, if we would like this to be continuous, we could change our $d\_{rate}$ by interpolating, but since we'll apply finite difference to it, there's not much value in that for us. (Note this also appears to be the pdf of Beta(1/2, 1/2) which may be how the data was formed). 
 
-# Part 2
+## Part 2
 
 Now we use a finite difference scheme to solve for the next 30 years. It goes as follows:
 
@@ -141,16 +141,16 @@ Using this we solve for the next 30 years.
 
 
 ```python
-#Use Finite Difference to calculate next steps
+##Use Finite Difference to calculate next steps
 ans = np.zeros((30, 100))
 h = 1
 k = 1
 
-#perform it for the initial year, using last year of data
+##perform it for the initial year, using last year of data
 ans[0, 0] = np.sum(data[-1,15:45]*birth_rate)
 ans[0,1:] = data[-1,1:] * (1 - d_rates*k) - (k/(2*h)) * ( data[-1,1:] - data[-1,:-1] )
 
-#then interate through performing it
+##then interate through performing it
 for i in range(1,len(ans)):
     if i!=0:
         ans[i, 0] = np.sum(ans[i-1, 15:45]*birth_rate)
@@ -159,7 +159,7 @@ for i in range(1,len(ans)):
 
 
 ```python
-#make appropriate meshgrid and plot OG data
+##make appropriate meshgrid and plot OG data
 x = np.arange(1, 101)
 t = np.arange(0, 50)
 X, T = np.meshgrid(x, t)
@@ -167,7 +167,7 @@ fig = plt.figure(figsize=(14,8))
 ax = plt.axes(projection='3d')
 ax.plot_surface(X, T, data, rstride=1, cstride=1,
                 cmap='viridis', edgecolor='none')
-#make appropriate meshgrid and plot our approximation
+##make appropriate meshgrid and plot our approximation
 x = np.arange(1, 101)
 t = np.arange(50, 80)
 X, T = np.meshgrid(x, t)
@@ -186,7 +186,7 @@ plt.show()
 
 
 This looks really good!
-# Part 2
+## Part 2
 
 We save the data for the next 30 years of k-12 (age 4 - 18 to cover all ages). You can see it above plotted.
 
@@ -195,7 +195,7 @@ We save the data for the next 30 years of k-12 (age 4 - 18 to cover all ages). Y
 np.save("prediction.npy", ans)
 ```
 
-# Part 3
+## Part 3
 
 We also save the death rate and birth rate (you can see them plotted above). Note since we didn't calculate the birth rate for everyone, it's just assumed to be 0 outside of that range.
 

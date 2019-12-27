@@ -36,6 +36,7 @@ def convert_jupyter(type, file):
     md = re.sub(r'\\\\', r'\\\\\\\\', md)
     md = re.sub(r'_{', '\_{', md)
     md = re.sub(files, f'/static/{type}/{files}', md)
+    md = re.sub(r'(#+)', r'#\1', md)
     with open(f'content/{type}/{filename}.md', 'w') as writer:
         writer.write(md)
 

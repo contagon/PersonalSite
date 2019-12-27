@@ -33,7 +33,7 @@
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <h2>Some of my recent thoughts...</h2>
+            <h2>Some of my recent projects...</h2>
             {% for project in projects %}
             <p>
               <a href="{{ url_for('project', name=project.path.replace('projects/', '')) }}" class="internal">

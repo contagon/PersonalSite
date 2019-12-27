@@ -28,17 +28,17 @@ h1.title{
   @media (max-width: 1000px) {font-size: 1.3em; text-align: center;}
   @media (max-width: 550px) {font-size: 1.3em; text-align: center;margin:8px;}
 }
-h2{
-  font-size: 3em;
-  font-weight: 300;
-  @media (max-width: 1000px) {font-size: 2em;}
-}
-h3{
-  font-size: 1.2em;
-}
-h4{
-  font-size: 1.1em;
-}
+// h2{
+//   font-size: 3em;
+//   font-weight: 300;
+//   @media (max-width: 1000px) {font-size: 2em;}
+// }
+// h3{
+//   font-size: 1.2em;
+// }
+// h4{
+//   font-size: 1.1em;
+// }
 b{
   font-weight: 800;
 }
@@ -158,7 +158,8 @@ div.contentblock{
     background-color: @white;
     color: @darkgrey;
     padding: 50px;
-    @media (max-width: 400px) {padding: 20px;}
+    @media (max-width: 500px) {padding: 20px;}
+    @media (max-width: 500px) {width: 100%;}
   }
 
   &.gallery .container{
@@ -180,33 +181,16 @@ div.contentblock{
 /*Blog post styling*/
 .post{
   font-size: 0.95em;
-  line-height: 1.25;
-  p{
-    padding: 15px 0px 15px 0px;
-    margin: 0px;
-  }
-  p:first-child{
-    padding-top: 30px;
-  }
-  p:last-child{
-    padding-bottom: 30px;
-  }
-  h2{
-    // text-transform: uppercase;
+  line-height: 1.7;
+  h1{
+    text-transform: uppercase;
     font-size: 2.5em;
     text-align: center;
     border-bottom: 2px solid;
     padding:0px;
     margin:0px;
     clear: both;
-    // @media (max-width: 1000px) {font-size: 1.7em;}
-  }
-  h3{
-    // text-transform: uppercase;
-    border-bottom: 2px solid;
-    padding:0px 0px 0px 0px;
-    margin:40px 0px 0px 0px;
-    clear: both;
+    @media (max-width: 1000px) {font-size: 2em;}
   }
   img{
     max-width: 100%;
@@ -214,59 +198,15 @@ div.contentblock{
     margin-left: auto;
     margin-right: auto;
   }
-  div.fw-image{
-    width: 100%;
-    span.caption{
-      display: block;
-      text-align: center;
-      font-size: 0.8em;
-    }
-  }
-  div.hw-image-left{
-    width: 40%;
-    float: left;
-    margin: 30px;
-    span.caption{
-      display: block;
-      text-align: center;
-      font-size: 0.8em;
-    }
-  }
-  div.hw-image-right{
-    width: 40%;
-    float: right;
-    margin: 30px;
-    span.caption{
-      display: block;
-      text-align: center;
-      font-size: 0.8em;
-    }
-  }
   div.codehilite{
     padding: 1px 20px 1px 20px;
+    margin-bottom: 15px;
   }
-
   pre{
-    white-space: pre-wrap;
-    // overflow: scroll;
-  }
-  code{
-    background-color: #ddd;
-    padding: 5px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: #ccc;
-    border-width: 1px;
-  }
-
-  a{
-    color: @darkgrey;
-  }
-  ul{
-    margin: 0px 20px 0px 20px;
-  }
-  ol{
-    margin: 0px 20px 0px 20px;
+    // white-space: pre-wrap;
+    overflow: scroll;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
   }
 }
 
@@ -337,19 +277,13 @@ div.contentblock{
   }
   div.codehilite{
     padding: 1px 20px 1px 20px;
+    margin-bottom: 15px;
   }
-
   pre{
-    white-space: pre-wrap;
-    // overflow: scroll;
-  }
-  code{
-    background-color: #ddd;
-    padding: 5px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: #ccc;
-    border-width: 1px;
+    // white-space: pre-wrap;
+    overflow: scroll;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
   }
 
   a{
@@ -363,13 +297,15 @@ div.contentblock{
   }
 }
 
-/* Content */
+/* Gallery */
 #myBtnContainer{
   padding: 8px;
 }
 .button{
   width: 97% / 4;
 }
+
+/* The "show" class is added to the filtered elements */
 .content {
   text-align: center;
   background-color: white;
@@ -378,7 +314,6 @@ div.contentblock{
 .item{
   display: none;
 }
-/* The "show" class is added to the filtered elements */
 .show {
   display: block;
 }

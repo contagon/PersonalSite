@@ -28,21 +28,6 @@ h1.title span.title_lt {
     margin: 8px;
   }
 }
-h2 {
-  font-size: 3em;
-  font-weight: 300;
-}
-@media (max-width: 1000px) {
-  h2 {
-    font-size: 2em;
-  }
-}
-h3 {
-  font-size: 1.2em;
-}
-h4 {
-  font-size: 1.1em;
-}
 b {
   font-weight: 800;
 }
@@ -174,9 +159,14 @@ div.contentblock.post .container {
   color: #111111;
   padding: 50px;
 }
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   div.contentblock.post .container {
     padding: 20px;
+  }
+}
+@media (max-width: 500px) {
+  div.contentblock.post .container {
+    width: 100%;
   }
 }
 div.contentblock.gallery .container {
@@ -202,19 +192,10 @@ div.contentblock div.contentblock_vcentre {
 /*Blog post styling*/
 .post {
   font-size: 0.95em;
-  line-height: 1.25;
+  line-height: 1.7;
 }
-.post p {
-  padding: 15px 0px 15px 0px;
-  margin: 0px;
-}
-.post p:first-child {
-  padding-top: 30px;
-}
-.post p:last-child {
-  padding-bottom: 30px;
-}
-.post h2 {
+.post h1 {
+  text-transform: uppercase;
   font-size: 2.5em;
   text-align: center;
   border-bottom: 2px solid;
@@ -222,11 +203,10 @@ div.contentblock div.contentblock_vcentre {
   margin: 0px;
   clear: both;
 }
-.post h3 {
-  border-bottom: 2px solid;
-  padding: 0px 0px 0px 0px;
-  margin: 40px 0px 0px 0px;
-  clear: both;
+@media (max-width: 1000px) {
+  .post h1 {
+    font-size: 2em;
+  }
 }
 .post img {
   max-width: 100%;
@@ -234,56 +214,14 @@ div.contentblock div.contentblock_vcentre {
   margin-left: auto;
   margin-right: auto;
 }
-.post div.fw-image {
-  width: 100%;
-}
-.post div.fw-image span.caption {
-  display: block;
-  text-align: center;
-  font-size: 0.8em;
-}
-.post div.hw-image-left {
-  width: 40%;
-  float: left;
-  margin: 30px;
-}
-.post div.hw-image-left span.caption {
-  display: block;
-  text-align: center;
-  font-size: 0.8em;
-}
-.post div.hw-image-right {
-  width: 40%;
-  float: right;
-  margin: 30px;
-}
-.post div.hw-image-right span.caption {
-  display: block;
-  text-align: center;
-  font-size: 0.8em;
-}
 .post div.codehilite {
   padding: 1px 20px 1px 20px;
+  margin-bottom: 15px;
 }
 .post pre {
-  white-space: pre-wrap;
-}
-.post code {
-  background-color: #ddd;
-  padding: 5px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #ccc;
-  border-width: 1px;
-}
-.post a {
-  color: #111111;
-}
-.post ul {
-  margin: 0px 20px 0px 20px;
-}
-.post ol {
-  margin: 0px 20px 0px 20px;
+  overflow: scroll;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 /* Gallery Styling */
 .gallery {
@@ -350,17 +288,7 @@ div.contentblock div.contentblock_vcentre {
 }
 .gallery div.codehilite {
   padding: 1px 20px 1px 20px;
-}
-.gallery pre {
-  white-space: pre-wrap;
-}
-.gallery code {
-  background-color: #ddd;
-  padding: 5px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #ccc;
-  border-width: 1px;
+  overflow: scroll;
 }
 .gallery a {
   color: #111111;
@@ -371,13 +299,14 @@ div.contentblock div.contentblock_vcentre {
 .gallery ol {
   margin: 0px 20px 0px 20px;
 }
-/* Content */
+/* Gallery */
 #myBtnContainer {
   padding: 8px;
 }
 .button {
   width: 24.25%;
 }
+/* The "show" class is added to the filtered elements */
 .content {
   text-align: center;
   background-color: white;
@@ -386,7 +315,6 @@ div.contentblock div.contentblock_vcentre {
 .item {
   display: none;
 }
-/* The "show" class is added to the filtered elements */
 .show {
   display: block;
 }
