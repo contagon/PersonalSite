@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 body {
-  background-color: #111111;
+  background-color: #ecf0f1;
   color: #ecf0f1;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -173,6 +173,7 @@ div.contentblock.gallery .container {
   background-color: #ecf0f1;
   color: #111111;
   padding: 50px;
+  max-width: 1280px;
 }
 @media (min-width: 400px) {
   div.contentblock.gallery .container {
@@ -196,16 +197,47 @@ div.contentblock div.contentblock_vcentre {
 }
 .post h1 {
   text-transform: uppercase;
-  font-size: 2.5em;
+  font-size: 3em;
   text-align: center;
+  word-spacing: 0.1em;
   border-bottom: 2px solid;
   padding: 0px;
   margin: 0px;
   clear: both;
 }
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
   .post h1 {
     font-size: 2em;
+  }
+}
+@media (min-width: 550px) {
+  .post h2 {
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 550px) {
+  .post h2 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 550px) {
+  .post h3 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 550px) {
+  .post h3 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 550px) {
+  .post h4 {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 550px) {
+  .post h4 {
+    font-size: 2rem;
   }
 }
 .post img {
@@ -215,8 +247,8 @@ div.contentblock div.contentblock_vcentre {
   margin-right: auto;
 }
 .post div.codehilite {
-  padding: 1px 20px 1px 20px;
-  margin-bottom: 15px;
+  padding: 1px 15px 1px 15px;
+  margin-bottom: 1.5em;
 }
 .post pre {
   overflow: scroll;
@@ -228,76 +260,30 @@ div.contentblock div.contentblock_vcentre {
   font-size: 0.95em;
   line-height: 1.25;
 }
-.gallery p {
-  padding: 15px 0px 15px 0px;
-  margin: 0px;
+.gallery .columns:first-child {
+  margin-left: 12px;
 }
-.gallery p:first-child {
-  padding-top: 30px;
-}
-.gallery p:last-child {
-  padding-bottom: 30px;
-}
-.gallery h2 {
-  font-size: 2.5em;
+.gallery h1 {
+  text-transform: uppercase;
+  font-size: 3em;
   text-align: center;
+  word-spacing: 0.1em;
   border-bottom: 2px solid;
   padding: 0px;
   margin: 0px;
   clear: both;
 }
+@media (max-width: 500px) {
+  .gallery h1 {
+    font-size: 2em;
+  }
+}
 .gallery h3 {
-  border-bottom: 2px solid;
-  padding: 0px 0px 0px 0px;
-  margin: 40px 0px 0px 0px;
-  clear: both;
-}
-.gallery img {
-  max-width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.gallery div.fw-image {
-  width: 100%;
-}
-.gallery div.fw-image span.caption {
-  display: block;
-  text-align: center;
-  font-size: 0.8em;
-}
-.gallery div.hw-image-left {
-  width: 40%;
-  float: left;
-  margin: 30px;
-}
-.gallery div.hw-image-left span.caption {
-  display: block;
-  text-align: center;
-  font-size: 0.8em;
-}
-.gallery div.hw-image-right {
-  width: 40%;
-  float: right;
-  margin: 30px;
-}
-.gallery div.hw-image-right span.caption {
-  display: block;
-  text-align: center;
-  font-size: 0.8em;
-}
-.gallery div.codehilite {
-  padding: 1px 20px 1px 20px;
-  overflow: scroll;
-}
-.gallery a {
-  color: #111111;
-}
-.gallery ul {
-  margin: 0px 20px 0px 20px;
-}
-.gallery ol {
-  margin: 0px 20px 0px 20px;
+  color: #262626;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 /* Gallery */
 #myBtnContainer {
@@ -307,13 +293,55 @@ div.contentblock div.contentblock_vcentre {
   width: 24.25%;
 }
 /* The "show" class is added to the filtered elements */
-.content {
-  text-align: center;
-  background-color: white;
-  padding: 10px;
-}
 .item {
   display: none;
+  top: 0px;
+  position: relative;
+  max-width: 262px;
+  background-color: #f2f8f9;
+  border-radius: 8px;
+  padding: 16px 12px;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 1px solid #f2f8f9;
+}
+.item:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #00838d;
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  transform: scale(2);
+  transform-origin: 50% 50%;
+  transition: transform 0.15s ease-out;
+}
+.item:hover:before {
+  transform: scale(2.15);
+}
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background-color: #00838d;
+  border-radius: 0 4px 0 32px;
+}
+.go-arrow {
+  margin-top: -4px;
+  margin-right: -4px;
+  color: white;
+  font-family: courier, sans;
 }
 .show {
   display: block;

@@ -11,7 +11,7 @@ html{
 }
 body{
   height: 100%;
-  background-color: @darkgrey;
+  background-color: @white;
   color: #ecf0f1;
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -28,24 +28,16 @@ h1.title{
   @media (max-width: 1000px) {font-size: 1.3em; text-align: center;}
   @media (max-width: 550px) {font-size: 1.3em; text-align: center;margin:8px;}
 }
-// h2{
-//   font-size: 3em;
-//   font-weight: 300;
-//   @media (max-width: 1000px) {font-size: 2em;}
-// }
-// h3{
-//   font-size: 1.2em;
-// }
-// h4{
-//   font-size: 1.1em;
-// }
+
 b{
   font-weight: 800;
 }
+
 a{
   color: inherit;
   text-decoration: underline;
 }
+
 .center{
   text-align: center;
 }
@@ -166,6 +158,7 @@ div.contentblock{
     background-color: @white;
     color: @darkgrey;
     padding: 50px;
+    max-width: 1280px;
     @media (min-width: 400px) {width: 95%;}
     @media (max-width: 400px) {padding: 20px;}
   }
@@ -184,13 +177,26 @@ div.contentblock{
   line-height: 1.7;
   h1{
     text-transform: uppercase;
-    font-size: 2.5em;
+    font-size: 3em;
     text-align: center;
+    word-spacing: 0.1em;
     border-bottom: 2px solid;
     padding:0px;
     margin:0px;
     clear: both;
-    @media (max-width: 1000px) {font-size: 2em;}
+    @media (max-width: 500px) {font-size: 2em;}
+  }
+  h2{
+    @media (min-width: 550px) {font-size: 3.5rem;}
+    @media (max-width: 550px) {font-size: 3rem;}
+  }
+  h3{
+    @media (min-width: 550px) {font-size: 3rem;}
+    @media (max-width: 550px) {font-size: 2.5rem;}
+  }
+  h4{
+    @media (min-width: 550px) {font-size: 2.5rem;}
+    @media (max-width: 550px) {font-size: 2rem;}
   }
   img{
     max-width: 100%;
@@ -199,8 +205,8 @@ div.contentblock{
     margin-right: auto;
   }
   div.codehilite{
-    padding: 1px 20px 1px 20px;
-    margin-bottom: 15px;
+    padding: 1px 15px 1px 15px;
+    margin-bottom: 1.5em;
   }
   pre{
     // white-space: pre-wrap;
@@ -214,86 +220,27 @@ div.contentblock{
 .gallery{
   font-size: 0.95em;
   line-height: 1.25;
-  p{
-    padding: 15px 0px 15px 0px;
-    margin: 0px;
+
+  .columns:first-child {
+    margin-left: 12px;
   }
-  p:first-child{
-    padding-top: 30px;
-  }
-  p:last-child{
-    padding-bottom: 30px;
-  }
-  h2{
-    // text-transform: uppercase;
-    font-size: 2.5em;
+  h1{
+    text-transform: uppercase;
+    font-size: 3em;
     text-align: center;
+    word-spacing: 0.1em;
     border-bottom: 2px solid;
     padding:0px;
     margin:0px;
     clear: both;
-    // @media (max-width: 1000px) {font-size: 1.7em;}
+    @media (max-width: 500px) {font-size: 2em;}
   }
-  h3{
-    // text-transform: uppercase;
-    border-bottom: 2px solid;
-    padding:0px 0px 0px 0px;
-    margin:40px 0px 0px 0px;
-    clear: both;
-  }
-  img{
-    max-width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  div.fw-image{
-    width: 100%;
-    span.caption{
-      display: block;
-      text-align: center;
-      font-size: 0.8em;
-    }
-  }
-  div.hw-image-left{
-    width: 40%;
-    float: left;
-    margin: 30px;
-    span.caption{
-      display: block;
-      text-align: center;
-      font-size: 0.8em;
-    }
-  }
-  div.hw-image-right{
-    width: 40%;
-    float: right;
-    margin: 30px;
-    span.caption{
-      display: block;
-      text-align: center;
-      font-size: 0.8em;
-    }
-  }
-  div.codehilite{
-    padding: 1px 20px 1px 20px;
-    margin-bottom: 15px;
-  }
-  pre{
-    // white-space: pre-wrap;
-    overflow: scroll;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-  }
-
-  a{
-    color: @darkgrey;
-  }
-  ul{
-    margin: 0px 20px 0px 20px;
-  }
-  ol{
-    margin: 0px 20px 0px 20px;
+  h3 {
+    color: #262626;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
   }
 }
 
@@ -306,13 +253,71 @@ div.contentblock{
 }
 
 /* The "show" class is added to the filtered elements */
-.content {
-  text-align: center;
-  background-color: white;
-  padding: 10px;
-}
+// .content {
+//   text-align: center;
+//   background-color: white;
+//   padding: 10px;
+// }
 .item{
   display: none;
+  top: 0px;
+  position: relative;
+  max-width: 262px;
+  background-color: #f2f8f9;
+  border-radius: 8px;
+  padding: 16px 12px;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 1px solid #f2f8f9;
+
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+    background-color: white;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #00838d;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(2.15);
+  }
+}
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background-color: #00838d;
+  border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+  margin-top: -4px;
+  margin-right: -4px;
+  color: white;
+  font-family: courier, sans;
 }
 .show {
   display: block;
