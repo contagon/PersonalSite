@@ -302,21 +302,16 @@ div.contentblock div.contentblock_vcentre {
   border-color: #111111;
 }
 .gallery nav ul {
-  margin: 10px;
+  margin: 5px;
   padding: 0;
   display: block;
-}
-@media (max-width: 550px) {
-  .gallery nav ul {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
 }
 .gallery nav ul li {
   display: inline-block;
   list-style-type: none;
   color: #111111;
-  margin-bottom: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .gallery nav ul li button {
   margin-bottom: 0px;
