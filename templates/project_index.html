@@ -8,22 +8,30 @@
     <div class="row">
       <h1>Projects</h1>
     </div>
-    <div class="row" id="myBtnContainer">
-      <button class="button button-primary" onclick="filterSelection('all')">All</button>
-      <button class="button" onclick="filterSelection('research')">Research</button>
-      <button class="button" onclick="filterSelection('personal')">Personal</button>
-      <button class="button" onclick="filterSelection('classes')">Classes</button>
+    <div class="row">
+      <div class="twelve columns">
+        <nav>
+            <ul id="myBtnContainer">
+              <li><button class="button primary" onclick="filterSelection('all')">All</button></li>
+              <li><button class="button" onclick="filterSelection('research')">Research</button></li>
+              <li><button class="button" onclick="filterSelection('personal')">Personal</button></li>
+              <li><button class="button" onclick="filterSelection('classes')">Classes</button></li>
+            </ul>
+        </nav>
+      </div>
     </div>
     <div class="row">
       {% for project in projects %}
-      <a class="four columns {{ project.tags }} item" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
-        <h3>{{ project.title }}</h3>
-        <!-- <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%"> -->
-        <p class="small">{{ project.description }}</p>
+      <a class="three columns {{ project.tags }} item" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
         <div class="go-corner" href="#">
           <div class="go-arrow">
             →
           </div>
+        </div>
+        <img src="/static/projects/pde_from_data.png" style="width:100%">
+        <div class="inner">
+          <h3>{{ project.title }}</h3>
+          <p class="small">{{ project.description }}</p>
         </div>
       </a>
       {% endfor %}

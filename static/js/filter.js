@@ -40,8 +40,8 @@ var btnContainer = document.getElementById("myBtnContainer");
 var btns = btnContainer.getElementsByClassName("button");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("button-primary");
-    current[0].className = current[0].className.replace(" button-primary", "");
-    this.className += " button-primary";
+    var current = document.getElementsByClassName("primary");
+    current[0].className = current[0].className.replace(" primary", "");
+    this.className += " primary";
   });
 }

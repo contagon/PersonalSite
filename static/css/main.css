@@ -177,7 +177,7 @@ div.contentblock.gallery .container {
 }
 @media (min-width: 400px) {
   div.contentblock.gallery .container {
-    width: 95%;
+    width: 100%;
   }
 }
 @media (max-width: 400px) {
@@ -272,15 +272,13 @@ div.contentblock div.contentblock_vcentre {
   font-size: 0.95em;
   line-height: 1.25;
 }
-.gallery .columns:first-child {
-  margin-left: 12px;
-}
 .gallery h1 {
   text-transform: uppercase;
   font-size: 3em;
   text-align: center;
   word-spacing: 0.1em;
-  border-bottom: 2px solid;
+  border-bottom: 1px solid;
+  border-color: #111111;
   padding: 0px;
   margin: 0px;
   clear: both;
@@ -297,27 +295,66 @@ div.contentblock div.contentblock_vcentre {
   font-weight: 700;
   margin-bottom: 4px;
 }
+.gallery nav {
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid;
+  border-color: #111111;
+}
+.gallery nav ul {
+  margin: 10px;
+  padding: 0;
+  display: block;
+}
+@media (max-width: 550px) {
+  .gallery nav ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+.gallery nav ul li {
+  display: inline-block;
+  list-style-type: none;
+  color: #111111;
+  margin-bottom: 0px;
+}
+.gallery nav ul li button {
+  margin-bottom: 0px;
+}
 /* Gallery */
-#myBtnContainer {
-  padding: 8px;
-}
-.button {
-  width: 24.25%;
-}
 /* The "show" class is added to the filtered elements */
+.button.primary {
+  color: #FFF;
+  background-color: #2A558C;
+  border-color: #2A558C;
+}
+.button.active,
+.button:hover {
+  color: #FFF;
+  background-color: #2A558C;
+  border-color: #2A558C;
+}
 .item {
   display: none;
   top: 0px;
   position: relative;
-  max-width: 262px;
   background-color: #f2f8f9;
   border-radius: 8px;
-  padding: 16px 12px;
+  padding: 0px;
   margin: 12px;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
   border: 1px solid #f2f8f9;
+}
+.item img {
+  border-radius: 8px 8px 0px 0px;
+}
+.item .inner {
+  padding: 16px 12px;
+}
+.item:first-child {
+  margin-left: 12px;
 }
 .item:hover {
   transition: all 0.2s ease-out;
@@ -332,7 +369,7 @@ div.contentblock div.contentblock_vcentre {
   z-index: -1;
   top: -16px;
   right: -16px;
-  background: #00838d;
+  background: #2A558C;
   height: 32px;
   width: 32px;
   border-radius: 32px;
@@ -353,7 +390,7 @@ div.contentblock div.contentblock_vcentre {
   overflow: hidden;
   top: 0;
   right: 0;
-  background-color: #00838d;
+  background-color: #2A558C;
   border-radius: 0 4px 0 32px;
 }
 .go-arrow {
