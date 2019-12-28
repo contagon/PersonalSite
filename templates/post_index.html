@@ -6,26 +6,29 @@
 <div class="contentblock gallery first_block">
   <div class="container">
     <div class="row">
-      <h2>Posts</h2>
+      <h1>Posts</h1>
     </div>
-    <div class="row" id="myBtnContainer">
-      <button class="button button-primary" onclick="filterSelection('all')">All</button>
-      <button class="button" onclick="filterSelection('research')">Research</button>
-      <button class="button" onclick="filterSelection('personal')">Personal</button>
-      <button class="button" onclick="filterSelection('classes')">Classes</button>
+    <div class="row">
+      <div class="twelve columns">
+        <nav>
+            <ul id="myBtnContainer">
+              <li><button class="button primary" onclick="filterSelection('all')">All</button></li>
+              <li><button class="button" onclick="filterSelection('research')">Research</button></li>
+              <li><button class="button" onclick="filterSelection('personal')">Personal</button></li>
+              <li><button class="button" onclick="filterSelection('classes')">Classes</button></li>
+            </ul>
+        </nav>
+      </div>
     </div>
     <div class="row">
       {% for post in posts %}
-      <div class="three columns {{ post.tags }} item">
-        <a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}" style="text-decoration:none;" class="internal">
-          <div class="content">
-            <!-- <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%"> -->
-            <h4>{{ post.title }}</h4>
-            <p>{{ post.description }}</p>
-            <small>{{ post.date }}</small>
-          </div>
-        </a>
-      </div>
+      <a class="three columns {{ post.tags }} item" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+        <img src="/static/projects/pde_from_data.png">
+        <div class="inner">
+          <h3>{{ post.title }}</h3>
+          <p class="small">{{ post.description }}</p>
+        </div>
+      </a>
       {% endfor %}
     </div>
   </div>

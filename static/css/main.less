@@ -19,14 +19,14 @@ body{
 
 // Text
 h1.title{
-  margin: 15px;
+  margin: 10px;
   font-size: 2em;
   text-decoration: none;
   span.title_lt{
     color: @blue;
   }
   @media (max-width: 1000px) {font-size: 1.3em; text-align: center;}
-  @media (max-width: 550px) {font-size: 1.3em; text-align: center;margin:8px;}
+  @media (max-width: 550px) {font-size: 1.3em; text-align: center;margin:6px;}
 }
 
 b{
@@ -51,9 +51,10 @@ header{
   width: 100%;
   z-index: 3;
   transition: transform 0.55s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
   &.headroom--unpinned{
     /* display: none; */
-    transform: translateY(-200px);
+    transform: translateY(-100%);
   }
   &.headroom--pinned{
     /* display: block; */
@@ -66,11 +67,12 @@ header{
       margin: 20px;
       padding: 0;
       display: block;
-      @media (max-width: 550px) {margin-top: 0px; margin-bottom: 10px;}
+      @media (max-width: 550px) {margin-top: 0px; margin-bottom: 8px;}
       li {
         display: inline-block;
         list-style-type: none;
         color: @darkgrey;
+        margin-bottom: 0px;
         &.active, &:hover{
           // text-decoration: underline @blue;
           color: @blue3;
@@ -97,7 +99,7 @@ div.contentblock{
   }
 
   &.first_block{
-    margin-top: 100px;
+    margin-top: 60px;
   }
 
   &.fullheight{
@@ -159,8 +161,8 @@ div.contentblock{
     color: @darkgrey;
     padding: 50px;
     max-width: 1280px;
+    @media (max-width: 500px) {padding: 20px;}
     @media (min-width: 400px) {width: 100%;}
-    @media (max-width: 400px) {padding: 20px;}
   }
 
   div.contentblock_vcentre{
@@ -283,6 +285,13 @@ div.contentblock{
     background-color: @blue3;
     border-color: @blue3;
   }
+  @media (max-width: 550px) {
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 10px;
+  }
+
 }
 .item{
   display: none;
@@ -295,10 +304,12 @@ div.contentblock{
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
-  border: 1px solid #f2f8f9;
-
+  border: 0px solid #f2f8f9;
   img{
     border-radius: 8px 8px 0px 0px;
+    width: 100%;
+    object-fit: contain;
+    transform: scale(1.1);
   }
   .inner{
     padding: 16px 12px;
@@ -311,48 +322,17 @@ div.contentblock{
     transition: all 0.2s ease-out;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     top: -4px;
-    border: 1px solid #cccccc;
+    // border: 1px solid #cccccc;
     background-color: white;
   }
-
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -16px;
-    right: -16px;
-    background: @blue3;
-    height: 32px;
-    width: 32px;
-    border-radius: 32px;
-    transform: scale(2);
-    transform-origin: 50% 50%;
-    transition: transform 0.15s ease-out;
-  }
-
-  &:hover:before {
-    transform: scale(2.15);
-  }
 }
-.go-corner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  background-color: @blue3; //#00838d;
-  border-radius: 0 4px 0 32px;
-}
-
-.go-arrow {
-  margin-top: -4px;
-  margin-right: -4px;
-  color: white;
-  font-family: courier, sans;
+.three.columns{
+  @media (max-width: 750px) {width: 45%;}
+  @media (max-width: 550px) {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;}
 }
 .show {
   display: block;

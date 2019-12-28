@@ -8,7 +8,7 @@ body {
   height: 100%;
 }
 h1.title {
-  margin: 15px;
+  margin: 10px;
   font-size: 2em;
   text-decoration: none;
 }
@@ -25,7 +25,7 @@ h1.title span.title_lt {
   h1.title {
     font-size: 1.3em;
     text-align: center;
-    margin: 8px;
+    margin: 6px;
   }
 }
 b {
@@ -47,10 +47,11 @@ header {
   width: 100%;
   z-index: 3;
   transition: transform 0.55s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
 }
 header.headroom--unpinned {
   /* display: none; */
-  transform: translateY(-200px);
+  transform: translateY(-100%);
 }
 header.headroom--pinned {
   /* display: block; */
@@ -68,13 +69,14 @@ header nav ul {
 @media (max-width: 550px) {
   header nav ul {
     margin-top: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 }
 header nav ul li {
   display: inline-block;
   list-style-type: none;
   color: #111111;
+  margin-bottom: 0px;
 }
 header nav ul li.active,
 header nav ul li:hover {
@@ -107,7 +109,7 @@ div.contentblock p {
   }
 }
 div.contentblock.first_block {
-  margin-top: 100px;
+  margin-top: 60px;
 }
 div.contentblock.fullheight {
   height: 100%;
@@ -175,14 +177,14 @@ div.contentblock.gallery .container {
   padding: 50px;
   max-width: 1280px;
 }
+@media (max-width: 500px) {
+  div.contentblock.gallery .container {
+    padding: 20px;
+  }
+}
 @media (min-width: 400px) {
   div.contentblock.gallery .container {
     width: 100%;
-  }
-}
-@media (max-width: 400px) {
-  div.contentblock.gallery .container {
-    padding: 20px;
   }
 }
 div.contentblock div.contentblock_vcentre {
@@ -329,6 +331,14 @@ div.contentblock div.contentblock_vcentre {
   background-color: #2A558C;
   border-color: #2A558C;
 }
+@media (max-width: 550px) {
+  .button {
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 10px;
+  }
+}
 .item {
   display: none;
   top: 0px;
@@ -340,10 +350,13 @@ div.contentblock div.contentblock_vcentre {
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
-  border: 1px solid #f2f8f9;
+  border: 0px solid #f2f8f9;
 }
 .item img {
   border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  object-fit: contain;
+  transform: scale(1.1);
 }
 .item .inner {
   padding: 16px 12px;
@@ -355,44 +368,20 @@ div.contentblock div.contentblock_vcentre {
   transition: all 0.2s ease-out;
   box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
   top: -4px;
-  border: 1px solid #cccccc;
   background-color: white;
 }
-.item:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: -16px;
-  right: -16px;
-  background: #2A558C;
-  height: 32px;
-  width: 32px;
-  border-radius: 32px;
-  transform: scale(2);
-  transform-origin: 50% 50%;
-  transition: transform 0.15s ease-out;
+@media (max-width: 750px) {
+  .three.columns {
+    width: 45%;
+  }
 }
-.item:hover:before {
-  transform: scale(2.15);
-}
-.go-corner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  background-color: #2A558C;
-  border-radius: 0 4px 0 32px;
-}
-.go-arrow {
-  margin-top: -4px;
-  margin-right: -4px;
-  color: white;
-  font-family: courier, sans;
+@media (max-width: 550px) {
+  .three.columns {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
 }
 .show {
   display: block;
