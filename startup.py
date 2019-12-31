@@ -20,6 +20,10 @@ freezer = Freezer(app)
 
 app.config.from_object(__name__)
 
+projects = [p for p in flatpages if p.path.startswith(PROJECT_DIR)]
+projects.sort(key=lambda item: item['date'], reverse=True)
+print(projects[0].path)
+
 def convert_jupyter(type, file):
     #do initial conversions
     os.system(f'jupyter nbconvert --to markdown content/{type}/{file}')
@@ -65,7 +69,7 @@ def home():
     posts.sort(key=lambda item: item['date'], reverse=True)
     projects = [p for p in flatpages if p.path.startswith(PROJECT_DIR)]
     projects.sort(key=lambda item: item['date'], reverse=True)
-    return render_template('home.html', posts=posts, projects=projects)
+    return render_template('home.html', posts=posts[0:2], projects=projects[0:2])
 
 @app.route("/aboutme/")
 def aboutme():

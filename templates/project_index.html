@@ -23,7 +23,9 @@
     <div class="row">
       {% for project in projects %}
       <a class="three columns {{ project.tags }} item" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
-        <img src="/static/projects/pde_from_data.png">
+        <div class="img_wrapper">
+          <img src="/static/{{ project.path }}.png">
+        </div>
         <div class="inner">
           <h3>{{ project.title }}</h3>
           <p class="small">{{ project.description }}</p>

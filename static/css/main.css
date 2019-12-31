@@ -340,26 +340,47 @@ div.contentblock div.contentblock_vcentre {
   }
 }
 .item {
+  text-decoration: none;
   display: none;
-  top: 0px;
-  position: relative;
   background-color: #f2f8f9;
   border-radius: 8px;
   padding: 0px;
   margin: 12px;
-  text-decoration: none;
-  z-index: 0;
+  border: 0px;
+}
+.item .img_wrapper {
+  position: relative;
+  width: 100%;
+  /* The size you want */
+  border-radius: 8px 8px 0px 0px;
   overflow: hidden;
-  border: 0px solid #f2f8f9;
+}
+.item .img_wrapper:after {
+  content: "";
+  display: block;
+  padding-bottom: 50%;
+  /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
 }
 .item img {
-  border-radius: 8px 8px 0px 0px;
+  position: absolute;
+  /* Take your picture out of the flow */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Make the picture taking the size of it's parent */
   width: 100%;
-  object-fit: contain;
-  transform: scale(1.1);
+  /* This if for the object-fit */
+  height: 100%;
+  /* This if for the object-fit */
+  object-fit: cover;
+  /* Equivalent of the background-size: cover; of a background-image */
+  object-position: center;
+  transform: scale(1.05);
 }
 .item .inner {
-  padding: 16px 12px;
+  width: 100%;
+  padding: 0px 6px 6px 6px;
 }
 .item:first-child {
   margin-left: 12px;
@@ -371,12 +392,12 @@ div.contentblock div.contentblock_vcentre {
   background-color: white;
 }
 @media (max-width: 750px) {
-  .three.columns {
+  .item.three.columns {
     width: 45%;
   }
 }
 @media (max-width: 550px) {
-  .three.columns {
+  .item.three.columns {
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;
