@@ -125,19 +125,32 @@ div.contentblock{
     color: @white;
   }
 
-  &.engineer, &.fourohfour{
+  &.fourohfour{
     color: #41FF00;
     background-color: #000000;
     font-family: 'IBM Plex Mono', monospace;
     text-shadow: 0px 0px 4px #41FF00;
   }
 
+  &.projects{
+    background-color: @darkgrey;
+    color: @white;
+    padding: 50px;
+    // max-width: 1280px;
+    @media (max-width: 500px) {padding: 20px;}
+    @media (min-width: 400px) {width: 100%;}
+  }
+
   &.posts{
     background: @blue;
     color: @white;
-    a{
-      text-decoration: underline;
-    }
+    // a{
+    //   text-decoration: underline;
+    // }
+    padding: 50px;
+    // max-width: 1280px;
+    @media (max-width: 500px) {padding: 20px;}
+    @media (min-width: 400px) {width: 100%;}
   }
 
   &.connect{
@@ -294,6 +307,7 @@ div.contentblock{
 
 }
 .item{
+  color: @darkgrey;
   text-decoration: none;
   display: none;
   background-color: #f2f8f9;

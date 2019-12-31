@@ -28,22 +28,35 @@
       </div>
     </div>
   </div>
-  <div class="contentblock engineer section">
+  <div class="contentblock projects section">
     <div class="contentblock_vcentre">
       <div class="container">
         <div class="row">
           <div class="twelve columns">
             <h2>Some of my recent projects...</h2>
-            {% for project in projects %}
-            <p>
-              <a href="{{ url_for('project', name=project.path.replace('projects/', '')) }}" class="internal">
-                {{ project.title }}
-              </a> -
-              <small>{{ project.date }}</small>
-            </p>
-            {% endfor %}
-            <p>Or see all projects <a href="/projects">here</a>.</p>
           </div>
+        </div>
+        <div class="row">
+          {% for project in projects %}
+          <a class="three columns item show" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
+            <div class="img_wrapper">
+              <img src="/static/{{ project.path }}.png">
+            </div>
+            <div class="inner">
+              <h3>{{ project.title }}</h3>
+              <p class="small">{{ project.description }}</p>
+            </div>
+          </a>
+          {% endfor %}
+          <a class="three columns item show" href="/projects">
+            <div class="img_wrapper">
+              <img src="/static/img/add_circle.png">
+            </div>
+            <div class="inner">
+              <h3>See All</h3>
+              <p class="small">View all my projects by clicking here</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -53,17 +66,30 @@
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <h2>Some of my recent thoughts...</h2>
-            {% for post in posts %}
-            <p>
-              <a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}" class="internal">
-                {{ post.title }}
-              </a> -
-              <small>{{ post.date }}</small>
-            </p>
-            {% endfor %}
-            <p>Or see all posts <a href="/posts">here</a>.</p>
+            <h2>Some of my recent posts...</h2>
           </div>
+        </div>
+        <div class="row">
+          {% for post in posts %}
+          <a class="three columns item show" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+            <div class="img_wrapper">
+              <img src="/static/{{ post.path }}.png">
+            </div>
+            <div class="inner">
+              <h3>{{ post.title }}</h3>
+              <p class="small">{{ post.description }}</p>
+            </div>
+          </a>
+          {% endfor %}
+          <a class="three columns item show" href="/posts">
+            <div class="img_wrapper">
+              <img src="/static/img/add_circle.png">
+            </div>
+            <div class="inner">
+              <h3>See All</h3>
+              <p class="small">View all my posts by clicking here</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>

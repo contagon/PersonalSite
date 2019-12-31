@@ -135,19 +135,41 @@ div.contentblock.pilot {
   background: #0B1226;
   color: #ecf0f1;
 }
-div.contentblock.engineer,
 div.contentblock.fourohfour {
   color: #41FF00;
   background-color: #000000;
   font-family: 'IBM Plex Mono', monospace;
   text-shadow: 0px 0px 4px #41FF00;
 }
+div.contentblock.projects {
+  background-color: #111111;
+  color: #ecf0f1;
+  padding: 50px;
+}
+@media (max-width: 500px) {
+  div.contentblock.projects {
+    padding: 20px;
+  }
+}
+@media (min-width: 400px) {
+  div.contentblock.projects {
+    width: 100%;
+  }
+}
 div.contentblock.posts {
   background: #2A558C;
   color: #ecf0f1;
+  padding: 50px;
 }
-div.contentblock.posts a {
-  text-decoration: underline;
+@media (max-width: 500px) {
+  div.contentblock.posts {
+    padding: 20px;
+  }
+}
+@media (min-width: 400px) {
+  div.contentblock.posts {
+    width: 100%;
+  }
 }
 div.contentblock.connect {
   background: #ecf0f1;
@@ -340,6 +362,7 @@ div.contentblock div.contentblock_vcentre {
   }
 }
 .item {
+  color: #111111;
   text-decoration: none;
   display: none;
   background-color: #f2f8f9;
