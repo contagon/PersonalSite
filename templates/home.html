@@ -18,7 +18,7 @@
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <h2>I am a masters student at <b>Brigham Young University</b>.</h2>
+            <h2 class="title">I am a masters student at <b>Brigham Young University</b>.</h2>
             <p>My research currently focuses on increasing the speed of
               photonic simulations by leveraging machine learning techniques.
               <a href="/aboutme"><u>Read more about me here</u></a>.
@@ -33,13 +33,13 @@
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <h2>Some of my recent projects...</h2>
+            <h2 class="title">Some of my recent projects...</h2>
           </div>
         </div>
         <div class="row">
           {% for project in projects %}
-          <a class="three columns item show" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
-            <div class="img_wrapper">
+          <a class="four columns item show" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
+            <div class="img_wrapper front">
               <img src="/static/{{ project.path }}.png">
             </div>
             <div class="inner">
@@ -48,8 +48,8 @@
             </div>
           </a>
           {% endfor %}
-          <a class="three columns item show" href="/projects">
-            <div class="img_wrapper">
+          <a class="four columns item show" href="/projects">
+            <div class="img_wrapper front">
               <img src="/static/img/add_circle.png">
             </div>
             <div class="inner">
@@ -66,13 +66,13 @@
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <h2>Some of my recent posts...</h2>
+            <h2 class="title">Some of my recent posts...</h2>
           </div>
         </div>
         <div class="row">
           {% for post in posts %}
-          <a class="three columns item show" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
-            <div class="img_wrapper">
+          <a class="four columns item show" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+            <div class="img_wrapper front">
               <img src="/static/{{ post.path }}.png">
             </div>
             <div class="inner">
@@ -81,8 +81,8 @@
             </div>
           </a>
           {% endfor %}
-          <a class="three columns item show" href="/posts">
-            <div class="img_wrapper">
+          <a class="four columns item show" href="/posts">
+            <div class="img_wrapper front">
               <img src="/static/img/add_circle.png">
             </div>
             <div class="inner">
@@ -99,7 +99,7 @@
         <div class="container">
           <div class="row">
             <div class="twelve columns center">
-              <h2>Get in Touch</h2>
+              <h2 class="title">Get in Touch</h2>
               <p>eastonpots@byu.edu</p>
               <p><a href="https://www.linkedin.com/in/epot/">LinkedIn</a></p>
               <p><a href="https://github.com/contagon">GitHub</a></p>

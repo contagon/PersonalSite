@@ -22,7 +22,7 @@
     </div>
     <div class="row">
       {% for project in projects %}
-      <a class="three columns {{ project.tags }} item" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
+      <a class="four columns {{ project.tags }} item" href="{{ url_for('project', name=project.path.replace('projects/', '')) }}">
         <div class="img_wrapper">
           <img src="/static/{{ project.path }}.png">
         </div>
