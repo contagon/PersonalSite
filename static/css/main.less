@@ -7,6 +7,7 @@
 @blue2: #1B3059;
 @blue3: #2A558C;
 
+// Applies everywhere
 html{
   height: 100%;
 }
@@ -34,20 +35,18 @@ h2.title{
   font-weight: 300;
   @media (max-width: 1000px) {font-size: 2em;}
 }
-
 b{
   font-weight: 800;
 }
-
 a{
   color: inherit;
   text-decoration: underline;
 }
-
 .center{
   text-align: center;
 }
 
+// Header
 header{
   background-color: @white;
   color: @darkgrey;
@@ -96,22 +95,15 @@ header{
   }
 }
 
+// CONTENTBLOCK (used everywhere pretty much)
 div.contentblock{
   // padding: 30px;
-
   p{
     font-size: 1.2em;
     @media (max-width: 1000px) {font-size: 1em;}
   }
 
-  &.first_block{
-    margin-top: 60px;
-  }
-
-  &.fullheight{
-    height: 100%;
-  }
-
+  // Hello, I'm Easton Potokar page
   &.intro{
     background: @white;
     color: @darkgrey;
@@ -126,18 +118,13 @@ div.contentblock{
     }
   }
 
-  &.pilot{
+  // My about me page
+  &.about{
     background: @blue1;
     color: @white;
   }
 
-  &.fourohfour{
-    color: #41FF00;
-    background-color: #000000;
-    font-family: 'IBM Plex Mono', monospace;
-    text-shadow: 0px 0px 4px #41FF00;
-  }
-
+  // Projects page
   &.projects{
     background-color: @darkgrey;
     color: @white;
@@ -147,18 +134,17 @@ div.contentblock{
     @media (min-width: 400px) {width: 100%;}
   }
 
+  //post page
   &.posts{
     background: @blue;
     color: @white;
-    // a{
-    //   text-decoration: underline;
-    // }
     padding: 50px;
     // max-width: 1280px;
     @media (max-width: 500px) {padding: 20px;}
     @media (min-width: 400px) {width: 100%;}
   }
 
+  //connect page
   &.connect{
     background: @white;
     color: @darkgrey;
@@ -167,23 +153,160 @@ div.contentblock{
     }
   }
 
-  &.post .container{
-    background-color: @white;
-    color: @darkgrey;
-    padding: 50px;
-    @media (max-width: 500px) {padding: 20px;}
-    @media (max-width: 500px) {width: 100%;}
+  // Missing page
+  &.fourohfour{
+    color: #41FF00;
+    background-color: #000000;
+    font-family: 'IBM Plex Mono', monospace;
+    text-shadow: 0px 0px 4px #41FF00;
   }
 
-  &.gallery .container{
-    background-color: @white;
-    color: @darkgrey;
-    padding: 50px;
-    max-width: 1280px;
-    @media (max-width: 500px) {padding: 20px;}
-    @media (min-width: 400px) {width: 100%;}
+  // Styles the blog posts how I like
+  &.post{
+    font-size: 0.95em;
+    line-height: 1.7;
+    h1{
+      text-transform: uppercase;
+      font-size: 3em;
+      text-align: center;
+      word-spacing: 0.1em;
+      border-bottom: 2px solid;
+      padding:0px;
+      margin:0px;
+      clear: both;
+      @media (max-width: 500px) {font-size: 2em;}
+    }
+    h2{
+      @media (min-width: 550px) {font-size: 3.5rem;}
+      @media (max-width: 550px) {font-size: 3rem;}
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+    }
+    h3{
+      @media (min-width: 550px) {font-size: 3rem;}
+      @media (max-width: 550px) {font-size: 2.5rem;}
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+    }
+    h4{
+      @media (min-width: 550px) {font-size: 2.5rem;}
+      @media (max-width: 550px) {font-size: 2rem;}
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+    }
+    img{
+      max-width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    div.codehilite{
+      padding: 1px 15px 1px 15px;
+      margin-bottom: 1.5em;
+    }
+    pre{
+      // white-space: pre-wrap;
+      overflow: scroll;
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
+    }
+    // Cleans up posts and about me page
+    .container{
+      background-color: @white;
+      color: @darkgrey;
+      margin-top: 60px;
+      padding: 50px;
+      @media (max-width: 500px) {padding: 20px;}
+      @media (max-width: 500px) {width: 100%;}
+    }
   }
 
+  // Handles the styling of the gallery
+  &.gallery{
+    font-size: 0.95em;
+    line-height: 1.25;
+
+    h1{
+      text-transform: uppercase;
+      font-size: 3em;
+      text-align: center;
+      word-spacing: 0.1em;
+      border-bottom: 1px solid;
+      border-color: @lightgrey;
+      padding:0px;
+      margin:0px;
+      clear: both;
+      @media (max-width: 500px) {font-size: 2em;}
+    }
+    h3 {
+      // color: #262626;
+      font-size: 19px;
+      line-height: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    p {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #666666;
+      &.small {
+        font-size: 14px;
+      }
+    }
+    nav {
+      display: block;
+      text-align: center;
+      ul {
+        margin: 5px;
+        padding: 0;
+        display: block;
+        li {
+          display: inline-block;
+          list-style-type: none;
+          color: @darkgrey;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          button{
+            margin-bottom: 0px;
+          }
+        }
+      }
+      border-bottom: 1px solid;
+      border-color: @lightgrey;
+    }
+    //cleans up any page that includes a gallery
+    .container{
+      margin-top: 60px;
+      background-color: @white;
+      color: @darkgrey;
+      padding: 50px;
+      max-width: 1280px;
+      @media (max-width: 500px) {padding: 20px;}
+      @media (min-width: 400px) {width: 100%;}
+    }
+    //Handles all the filtering on the gallery page
+    .button&.primary{
+      color: #FFF;
+      background-color: @blue3;
+      border-color: @blue3;
+    }
+    .button{
+      &.active, &:hover{
+        color: #FFF;
+        background-color: @blue3;
+        border-color: @blue3;
+      }
+      @media (max-width: 580px) {
+        padding: 0 15px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 10px;
+      }
+    }
+  }
+
+  //centers home screen
   div.contentblock_vcentre{
     position: relative;
     top: 50%;
@@ -193,140 +316,11 @@ div.contentblock{
 }
 
 
-/*Blog post styling*/
-.post{
-  font-size: 0.95em;
-  line-height: 1.7;
-  h1{
-    text-transform: uppercase;
-    font-size: 3em;
-    text-align: center;
-    word-spacing: 0.1em;
-    border-bottom: 2px solid;
-    padding:0px;
-    margin:0px;
-    clear: both;
-    @media (max-width: 500px) {font-size: 2em;}
-  }
-  h2{
-    @media (min-width: 550px) {font-size: 3.5rem;}
-    @media (max-width: 550px) {font-size: 3rem;}
-    margin-top: 0rem;
-    margin-bottom: 0.5rem;
-  }
-  h3{
-    @media (min-width: 550px) {font-size: 3rem;}
-    @media (max-width: 550px) {font-size: 2.5rem;}
-    margin-top: 0rem;
-    margin-bottom: 0.5rem;
-  }
-  h4{
-    @media (min-width: 550px) {font-size: 2.5rem;}
-    @media (max-width: 550px) {font-size: 2rem;}
-    margin-top: 0rem;
-    margin-bottom: 0.5rem;
-  }
-  img{
-    max-width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  div.codehilite{
-    padding: 1px 15px 1px 15px;
-    margin-bottom: 1.5em;
-  }
-  pre{
-    // white-space: pre-wrap;
-    overflow: scroll;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-  }
-}
-
-/* Gallery Styling */
-.gallery{
-  font-size: 0.95em;
-  line-height: 1.25;
-
-  h1{
-    text-transform: uppercase;
-    font-size: 3em;
-    text-align: center;
-    word-spacing: 0.1em;
-    border-bottom: 1px solid;
-    border-color: @lightgrey;
-    padding:0px;
-    margin:0px;
-    clear: both;
-    @media (max-width: 500px) {font-size: 2em;}
-  }
-  h3 {
-    // color: #262626;
-    font-size: 19px;
-    line-height: 24px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  p {
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 20px;
-  color: #666666;
-    &.small {
-      font-size: 14px;
-    }
-  }
-  nav {
-    display: block;
-    text-align: center;
-    ul {
-      margin: 5px;
-      padding: 0;
-      display: block;
-      li {
-        display: inline-block;
-        list-style-type: none;
-        color: @darkgrey;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        button{
-          margin-bottom: 0px;
-        }
-      }
-    }
-    border-bottom: 1px solid;
-    border-color: @lightgrey;
-  }
-}
-
-/* Gallery */
-
-/* The "show" class is added to the filtered elements */
-.button&.primary{
-  color: #FFF;
-  background-color: @blue3;
-  border-color: @blue3;
-}
-.button{
-  &.active, &:hover{
-    color: #FFF;
-    background-color: @blue3;
-    border-color: @blue3;
-  }
-  @media (max-width: 580px) {
-    padding: 0 15px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 10px;
-  }
-
-}
+//This is the styling for the cards
 .item{
   color: @darkgrey;
   display: none;
   padding: 0px;
-  display: block;
   top: 0px;
   position: relative;
   background-color: #f2f8f9;
@@ -366,7 +360,6 @@ div.contentblock{
   &:first-child {
     margin-left: (8/6)*1%;
   }
-
   &:hover {
     transition: all 0.4s ease-out;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
@@ -374,7 +367,6 @@ div.contentblock{
     // border: 1px solid @blue3;
     background-color: white;
   }
-
   &:before {
     content: "";
     position: absolute;
@@ -389,12 +381,18 @@ div.contentblock{
     transform-origin: 50% 50%;
     transition: transform 0.35s ease-out;
   }
-
   &:hover:before {
     transform: scale(2.15);
   }
-
 }
+.show {
+  display: block;
+}
+.front.img_wrapper:after{
+  @media (max-width: 580px) {padding-bottom: 0;}
+}
+
+//Make the cards shrink the way I like
 .four.columns{
   margin: 2% (8/6)*1% 0%;
   @media (max-width: 750px) {
@@ -403,10 +401,4 @@ div.contentblock{
   @media (max-width: 580px) {
     width: 100%;
     margin: 3% 0 0;}
-}
-.front.img_wrapper:after{
-  @media (max-width: 580px) {padding-bottom: 0;}
-}
-.show {
-  display: block;
 }
