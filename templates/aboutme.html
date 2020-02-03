@@ -3,15 +3,15 @@
 {% block description %}About Me Page{% endblock %}
 {% set active_page = "aboutme" %}
 {% block content %}
-<div class="contentblock post">
+<div class="contentblock aboutme">
   <div class="container" style="width: 100%; max-width: 1200px;">
     <div class="row">
-      <div class="three columns">
+      <div class="four columns">
         <img src="/static/img/avatar.jpg" id="avatar" style="border-radius: 50%;">
         <h3>Easton Potokar</h3>
         <h4>Masters Student at BYU</h4>
       </div>
-      <div class="nine columns">
+      <div class="eight columns">
         {{ content.html | safe }}
       </div>
     </div>

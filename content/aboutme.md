@@ -2,16 +2,23 @@ title: About Me
 
 ## About Me
 
-I'm currently a master's student at BYU researching stuff.
+&nbsp; &nbsp; &nbsp; &nbsp; I'm currently finishing my undergraduate degree at BYU in Applied and Computational Mathematics (ACME). While a bit of a unique degree, it gives me a deep knowledge of and experience in
 
-## Filler
+ * Optimization (convex, constrained/unconstrained, nonlinear)
+ * Various Mathematical Analysis topics (complex analysis, vector spaces, norms, inner products, etc.)
+ * Various Statistic Topics
+ * Machine Learning Algorithms
+ * Optimal Control
+ * Algorithm Design
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed cras ornare arcu dui vivamus arcu felis bibendum. Enim praesent elementum facilisis leo vel fringilla est ullamcorper eget. Aliquam sem fringilla ut morbi. Adipiscing at in tellus integer feugiat scelerisque varius morbi. Rhoncus urna neque viverra justo nec ultrices dui sapien. Suspendisse interdum consectetur libero id faucibus. Leo vel fringilla est ullamcorper. Non blandit massa enim nec dui nunc mattis. Et tortor consequat id porta nibh venenatis cras sed felis. Pretium lectus quam id leo in vitae.
+which allows me to dip my feet in just about any STEM field I desire.
 
-A iaculis at erat pellentesque adipiscing commodo elit. Purus in massa tempor nec feugiat nisl pretium fusce. Volutpat est velit egestas dui id. Amet cursus sit amet dictum. Fusce id velit ut tortor pretium viverra suspendisse. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Et magnis dis parturient montes nascetur ridiculus mus mauris. Curabitur vitae nunc sed velit dignissim sodales ut eu. Eget velit aliquet sagittis id consectetur purus ut faucibus. Ultrices neque ornare aenean euismod elementum nisi. Eu consequat ac felis donec. Eu augue ut lectus arcu bibendum at varius vel. Id donec ultrices tincidunt arcu. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Nam aliquam sem et tortor. Non quam lacus suspendisse faucibus interdum posuere lorem. Vulputate odio ut enim blandit. Ornare quam viverra orci sagittis eu volutpat odio.
+&nbsp; &nbsp; &nbsp; &nbsp; Fall 2020 I'll be beginning a Masters of Science degree from BYU in Electrical and Computer Engineering.
 
-Quis vel eros donec ac odio tempor orci dapibus. Condimentum lacinia quis vel eros donec ac odio tempor. Nam libero justo laoreet sit. Augue neque gravida in fermentum et. Faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Sapien nec sagittis aliquam malesuada bibendum. Dolor sit amet consectetur adipiscing elit. Malesuada fames ac turpis egestas sed tempus. Blandit massa enim nec dui nunc mattis enim ut. Mauris commodo quis imperdiet massa tincidunt nunc. Venenatis urna cursus eget nunc scelerisque viverra. A scelerisque purus semper eget duis at tellus at urna. Ullamcorper sit amet risus nullam eget felis eget nunc. Varius duis at consectetur lorem donec massa sapien faucibus et. Venenatis lectus magna fringilla urna porttitor rhoncus dolor. Nisl suscipit adipiscing bibendum est ultricies integer.
+## Current Research
 
-Arcu non odio euismod lacinia at quis risus. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. Pellentesque id nibh tortor id aliquet lectus proin. Neque vitae tempus quam pellentesque nec nam. Egestas sed sed risus pretium quam vulputate. Ut lectus arcu bibendum at. Fames ac turpis egestas maecenas pharetra convallis posuere morbi. Netus et malesuada fames ac turpis egestas maecenas. Id neque aliquam vestibulum morbi blandit cursus risus at ultrices. Fringilla ut morbi tincidunt augue interdum velit euismod in.
+&nbsp; &nbsp; &nbsp; &nbsp; My current research focuses on using machine learning techniques to simulate photonic directional couplers in a fraction of the time of current methods. It includes use of multivariate linear regressions, quadratures to achieve orders of magnitude improvements over traditional FDTD methods. Further, all of this has been done neatly in a python package that to further integrate with other simulation software.
 
-Pharetra convallis posuere morbi leo urna. Vivamus at augue eget arcu dictum varius duis at consectetur. Quis auctor elit sed vulputate mi sit amet mauris commodo. Orci sagittis eu volutpat odio facilisis mauris. Tincidunt dui ut ornare lectus sit amet est placerat in. Risus in hendrerit gravida rutrum quisque non tellus. Sed ullamcorper morbi tincidunt ornare massa eget. Quis vel eros donec ac odio. Sed felis eget velit aliquet sagittis. Semper risus in hendrerit gravida. Sed risus pretium quam vulputate dignissim suspendisse in est. Aliquet eget sit amet tellus cras. Habitant morbi tristique senectus et netus et malesuada fames ac. Ipsum consequat nisl vel pretium. Integer quis auctor elit sed vulputate. Lobortis elementum nibh tellus molestie nunc non blandit massa. Viverra justo nec ultrices dui sapien eget. Mauris ultrices eros in cursus turpis.
+## Other Interests
+
+&nbsp; &nbsp; &nbsp; &nbsp; I have interests in algorithm design, machine learning, optimal control, and applications of these in the real world. In his free time I have numerous personal projects (see project page!) including running a 3D printing business, operating his self-made CNC and laser engraver, and spending time with his wife and daughter.

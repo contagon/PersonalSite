@@ -100,7 +100,19 @@ div.contentblock{
   // padding: 30px;
   p{
     font-size: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
     @media (max-width: 1000px) {font-size: 1em;}
+  }
+  ul{
+    font-size: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+    margin-left: 2em;
+    @media (max-width: 1000px) {font-size: 1em;}
+  }
+  li{
+    margin-bottom: 0em;
   }
 
   // Hello, I'm Easton Potokar page
@@ -196,6 +208,71 @@ div.contentblock{
     }
     img{
       max-width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    div.codehilite{
+      padding: 1px 15px 1px 15px;
+      margin-bottom: 1.5em;
+    }
+    pre{
+      // white-space: pre-wrap;
+      overflow: scroll;
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
+    }
+    // Cleans up posts and about me page
+    .container{
+      background-color: @white;
+      color: @darkgrey;
+      margin-top: 60px;
+      padding: 50px;
+      @media (max-width: 500px) {padding: 20px;}
+      @media (max-width: 500px) {width: 100%;}
+    }
+  }
+
+  // Styles the blog posts how I like
+  &.aboutme{
+    font-size: 0.95em;
+    line-height: 1.7;
+    h1{
+      text-transform: uppercase;
+      font-size: 3em;
+      text-align: center;
+      word-spacing: 0.1em;
+      border-bottom: 2px solid;
+      padding:0px;
+      margin:0px;
+      clear: both;
+      @media (max-width: 500px) {font-size: 2em;}
+    }
+    h2{
+      @media (min-width: 550px) {font-size: 3.5rem;}
+      @media (max-width: 550px) {font-size: 3rem;}
+      font-weight: 500;
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+    }
+    h3{
+      text-align: center;
+      font-weight: 500;
+      @media (min-width: 550px) {font-size: 3rem;}
+      @media (max-width: 550px) {font-size: 2.5rem;}
+      margin-top: 0.5rem;
+      margin-bottom: 0rem;
+    }
+    h4{
+      text-align: center;
+      font-weight: 300;
+      @media (min-width: 550px) {font-size: 2rem;}
+      @media (max-width: 550px) {font-size: 1.5rem;}
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+    }
+    img{
+      max-width: 80%;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -393,7 +470,7 @@ div.contentblock{
 }
 
 //Make the cards shrink the way I like
-.four.columns{
+.four.columns.item{
   margin: 2% (8/6)*1% 0%;
   @media (max-width: 750px) {
     width: 47.3333333%;
