@@ -3,13 +3,16 @@ date: 2019-11-21
 description: Modeling a Population PDE
 tags: classes
 
+Given a set of population data, we seek to create and fit a partial differential equation that can be used to predict future growth of the population to estimate the number of K-12 students. To do so, we also seek to fit the death and birth rate of the population.
+
+The data can be seen below our importing libraries.
+
 
 ```python
 from scipy.io import loadmat
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
-## %matplotlib widget
 from mpl_toolkits import mplot3d
 import matplotlib.pyplot as plt
 from scipy import optimize as opt
@@ -36,11 +39,19 @@ data = data['M_students']
 x = np.arange(1, 101)
 t = np.arange(0, 50)
 X, T = np.meshgrid(x, t)
+fig = plt.figure(figsize=(14,8))
+ax = plt.axes(projection='3d')
+ax.plot_surface(X, T, data, rstride=1, cstride=1,
+                cmap='viridis', edgecolor='none')
+ax.view_init(azim=30)
+plt.show()
 ```
 
-## Part 1
 
-We define our PDE as:
+![png](/static/projects/pde_from_data_files/pde_from_data_3_0.png)
+
+
+The population seems to follow the path of a "traveling wave", only with some needed decay terms. Luckily for us, there's a PDE that describes this. It is something like this (with our tweaks):
 
 \begin{align}
 u_x + u_t + &f(x)u = 0 \\\\
@@ -48,9 +59,11 @@ u(x,0) &= g(x) \\\\
 u(0,t) &= h(t)
 \end{align}
 
-The tricky part of this modeling was finding $f(x)$ and extending $h(t)$. Since we will be applying a finite difference scheme to this, I'm not concerned about "continuizing" these functions. Having them defined on a discrete set will be enough. For starters, we simply define $g(x)$ to be the initial array of data given to us that corresponds to year 0.
+The tricky part of this modeling was finding $f(x)$ (the death rate) and extending $h(t)$ (essentially all the births). Since we will be applying a finite difference scheme to this, I'm not concerned about "continuizing" these functions. Having them defined on a discrete set will be enough. For starters, we simply define $g(x)$ to be the initial array of data given to us that corresponds to year 0.
 
 To solve for $f(x)$ we manually find the death rate, and for $h(t)$ we perform a linear regression to find all birthrates. Details can be found below.
+
+### Fitting Birth Rate $h(t)$
 
 We noted that $h(t)$ was just all age 0 (newborns) given at all times. This means to extend it into new years we needed to find the birth rate for each age. We assumed this to be necessary only for ages 15-45 (being overly cautious). To find these rates we perform a regression mapping a linear combination of population at certain ages to the number of newborns the following year. This performed with an excellent MSE.
 
@@ -74,7 +87,7 @@ mse = np.sum( (y - np.sum(X*birth_rate, axis=1))**2 )
 print(f"MSE = {mse}")
 ```
 
-    MSE = 4.6448130099413175e-26
+MSE = 4.6448130099413175e-26
 
 
 
@@ -93,14 +106,16 @@ plt.show()
 ```
 
 
-![png](/static/projects/pde_from_data_files/pde_from_data_6_0.png)
+![png](/static/projects/pde_from_data_files/pde_from_data_7_0.png)
 
 
 Thus we define $h(t)$
 $$ h(t) = \sum\_{x=15}^{45} b\_{rate}( x )u(x, t-1) $$
 Which is essentially a sum of all the babies that each age group will produce. In the case of continuous data this could be transformed into an integral by interpolating $b\_{rate}$.
 
-Next, to find $f(x)$ is to simply find the death rate. We noted that $f(x) = 1 - \frac{u(x+1,t+1)}{u(x,t)}$, since this gives us the percentage of people who perished each year. Since we have data, we simply performed this and then averaged it for each age.
+### Fitting Death Rate $f(x)$
+
+Next, to find $f(x)$ is to simply find the death rate. We noted that $\frac{u(x+1,t+1)}{u(x,t)}$ gives us the percentage of "survivors" who lived to the next year, so that means $f(x) = 1 - \frac{u(x+1,t+1)}{u(x,t)}$ gives us the percentage of people who perished each year. Since we have data, we simply performed this and then averaged it over all the possible years for each age.
 
 
 ```python
@@ -120,14 +135,14 @@ plt.show()
 ```
 
 
-![png](/static/projects/pde_from_data_files/pde_from_data_8_0.png)
+![png](/static/projects/pde_from_data_files/pde_from_data_9_0.png)
 
 
-Thus we define $f(x)$ as 
+Thus we define $f(x)$ as
 $$ f(x) = d\_{rate} ( x ) $$
-Note as before, if we would like this to be continuous, we could change our $d\_{rate}$ by interpolating, but since we'll apply finite difference to it, there's not much value in that for us. (Note this also appears to be the pdf of Beta(1/2, 1/2) which may be how the data was formed). 
+Note as before, if we would like this to be continuous, we could change our $d\_{rate}$ by interpolating, but since we'll apply finite difference to it, there's not much value in that for us. (Note this also appears to be the pdf of Beta(1/2, 1/2) which may be how the data was formed).
 
-## Part 2
+### Applying Finite Difference Scheme
 
 Now we use a finite difference scheme to solve for the next 30 years. It goes as follows:
 
@@ -182,33 +197,7 @@ plt.show()
 ```
 
 
-![png](/static/projects/pde_from_data_files/pde_from_data_12_0.png)
+![png](/static/projects/pde_from_data_files/pde_from_data_13_0.png)
 
 
-This looks really good!
-## Part 2
-
-We save the data for the next 30 years of k-12 (age 4 - 18 to cover all ages). You can see it above plotted.
-
-
-```python
-np.save("prediction.npy", ans)
-```
-
-## Part 3
-
-We also save the death rate and birth rate (you can see them plotted above). Note since we didn't calculate the birth rate for everyone, it's just assumed to be 0 outside of that range.
-
-
-```python
-b_rate = np.zeros(100)
-b_rate[15:45] = birth_rate
-np.save("birth_rate.npy", b_rate.reshape((1,100)))
-d_rates = np.append(d_rates, 1)
-np.save("death_rate.npy", d_rates.reshape((1,100)))
-```
-
-
-```python
-
-```
+It appears to be a great fit! While this was something of a contrived problem for class, the same general principles could be applied to fitting a real population curve, or any other sort of potential PDE problem.

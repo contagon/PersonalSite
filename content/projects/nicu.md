@@ -11,11 +11,7 @@ Neonatal seizures are a common occurrence and require immediate care. These seiz
 
 The dataset that will be used is available through a public repository containing EEG recordings of 79 term neonates (newborns) admitted to the NICU, with a median duration of 74 minutes available at https://zenodo.org/record/2547147. Each EEG recording includes 21 channels of data that correspond to a different location on the brain (see Fig. 1), and are recorded at 256Hz. These recordings were examined by three experts at second intervals and labeled a seizure or non-seizure. Also included is the neonates' clinical information, including body weight in grams, gestational age, and post menstrual age. 
 
-\begin{center} 
-\adjustimage{max size={0.3\linewidth}{0.3\paperheight}}{figs/eeg_channels.png}
-%\caption{Fig 1. Locations of various EEG channels}
-\end{center}
-\hspace*{\fill}
+<img style="float: right; width: 40%;" src="/static/projects/nicu.png"/>
 
 Much research has been done on developing algorithms to identify seizures in adult patients, but little has been done to identify them in premature and full term infants.
 
