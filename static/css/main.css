@@ -459,7 +459,7 @@ div.contentblock.gallery .container {
     width: 100%;
   }
 }
-.buttondiv.contentblock.gallery.primary {
+div.contentblock.gallery .button.primary {
   color: #FFF;
   background-color: #2A558C;
   border-color: #2A558C;
@@ -526,7 +526,7 @@ div.contentblock div.contentblock_vcentre {
 }
 .item .inner {
   width: 100%;
-  padding: 0px 6px 6px 6px;
+  padding: 0px 6px 6px 15px;
 }
 .item:first-child {
   margin-left: 1.33333333%;

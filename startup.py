@@ -75,9 +75,13 @@ def aboutme():
 
 @app.route("/posts/")
 def post_index():
+    #get all tags from posts, get unique ones, sort them
+    tags = [p.meta['tags'] for p in flatpages if p.path.startswith(POST_DIR)]
+    tags = sorted(list(set([item for sublist in tags for item in sublist])))
+    #get all posts and sort them by data
     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
     posts.sort(key=lambda item: item['date'], reverse=True)
-    return render_template('post_index.html', posts=posts)
+    return render_template('post_index.html', posts=posts, tags=tags)
 
 @app.route('/posts/<name>/')
 def post(name):
@@ -87,9 +91,13 @@ def post(name):
 
 @app.route("/projects/")
 def project_index():
+    #get all tags from projects, get unique ones, sort them
+    tags = [p.meta['tags'] for p in flatpages if p.path.startswith(PROJECT_DIR)]
+    tags = sorted(list(set([item for sublist in tags for item in sublist])))
+    #get all projects and sort them by data
     projects = [p for p in flatpages if p.path.startswith(PROJECT_DIR)]
     projects.sort(key=lambda item: item['date'], reverse=True)
-    return render_template('project_index.html', projects=projects)
+    return render_template('project_index.html', projects=projects, tags=tags)
 
 @app.route('/projects/<name>/')
 def project(name):

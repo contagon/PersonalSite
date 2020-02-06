@@ -363,12 +363,13 @@ div.contentblock{
       @media (min-width: 400px) {width: 100%;}
     }
     //Handles all the filtering on the gallery page
-    .button&.primary{
-      color: #FFF;
-      background-color: @blue3;
-      border-color: @blue3;
-    }
+    // .button
     .button{
+      &.primary{
+        color: #FFF;
+        background-color: @blue3;
+        border-color: @blue3;
+      }
       &.active, &:hover{
         color: #FFF;
         background-color: @blue3;
@@ -429,7 +430,7 @@ div.contentblock{
   }
   .inner{
     width: 100%;
-    padding: 0px 6px 6px 6px;
+    padding: 0px 6px 6px 15px;
     // height: 0;
     // padding-bottom: 50%;
     // overflow: hidden;

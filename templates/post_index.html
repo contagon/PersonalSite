@@ -13,9 +13,9 @@
         <nav>
             <ul id="myBtnContainer">
               <li><button class="button primary" onclick="filterSelection('all')">All</button></li>
-              <li><button class="button" onclick="filterSelection('research')">Research</button></li>
-              <li><button class="button" onclick="filterSelection('personal')">Personal</button></li>
-              <li><button class="button" onclick="filterSelection('classes')">Classes</button></li>
+              {% for tag in tags %}
+              <li><button class="button" onclick="filterSelection('{{ tag }}')">{{ tag }}</button></li>
+              {% endfor %}
             </ul>
         </nav>
       </div>

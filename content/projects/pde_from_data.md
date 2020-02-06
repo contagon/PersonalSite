@@ -1,7 +1,8 @@
 title: PDE From Data
 date: 2019-11-21
 description: Modeling a Population PDE
-tags: classes
+tags: 
+  - classes
 
 Given a set of population data, we seek to create and fit a partial differential equation that can be used to predict future growth of the population to estimate the number of K-12 students. To do so, we also seek to fit the death and birth rate of the population.
 
@@ -87,7 +88,7 @@ mse = np.sum( (y - np.sum(X*birth_rate, axis=1))**2 )
 print(f"MSE = {mse}")
 ```
 
-MSE = 4.6448130099413175e-26
+    MSE = 4.6448130099413175e-26
 
 
 
@@ -138,9 +139,9 @@ plt.show()
 ![png](/static/projects/pde_from_data_files/pde_from_data_9_0.png)
 
 
-Thus we define $f(x)$ as
+Thus we define $f(x)$ as 
 $$ f(x) = d\_{rate} ( x ) $$
-Note as before, if we would like this to be continuous, we could change our $d\_{rate}$ by interpolating, but since we'll apply finite difference to it, there's not much value in that for us. (Note this also appears to be the pdf of Beta(1/2, 1/2) which may be how the data was formed).
+Note as before, if we would like this to be continuous, we could change our $d\_{rate}$ by interpolating, but since we'll apply finite difference to it, there's not much value in that for us. (Note this also appears to be the pdf of Beta(1/2, 1/2) which may be how the data was formed). 
 
 ### Applying Finite Difference Scheme
 

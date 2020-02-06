@@ -1,7 +1,8 @@
 title: Analyzing NICU EEG Data
 date: 2019-11-21
 description: Dive into analyzing nicu data
-tags: classes
+tags: 
+  - classes
 
 Easton Potokar
 
