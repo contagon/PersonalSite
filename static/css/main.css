@@ -151,8 +151,11 @@ div.contentblock.intro h2 b {
   font-weight: 600;
 }
 div.contentblock.about {
-  background: #0B1226;
   color: #ecf0f1;
+  background: url('/static/img/byu.jpg');
+  background-color: #4B4B4B;
+  background-size: cover;
+  background-blend-mode: multiply;
 }
 div.contentblock.projects {
   background-color: #111111;
@@ -498,7 +501,6 @@ div.contentblock div.contentblock_vcentre {
   position: relative;
   width: 100%;
   /* The size you want */
-  border-radius: 5px 5px 0px 0px;
   overflow: hidden;
 }
 .item .img_wrapper:after {

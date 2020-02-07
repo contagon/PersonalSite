@@ -1,5 +1,6 @@
 @blue: @blue3;
 @lightgrey: #bfbfbf;
+@mediumgrey: #4B4B4B;
 @darkgrey: #111111;
 @white: #ecf0f1;
 
@@ -132,8 +133,11 @@ div.contentblock{
 
   // My about me page
   &.about{
-    background: @blue1;
     color: @white;
+    background: url('/static/img/byu.jpg');
+    background-color: @mediumgrey;
+    background-size: cover;
+    background-blend-mode: multiply;
   }
 
   // Projects page
@@ -408,7 +412,7 @@ div.contentblock{
   .img_wrapper {
     position: relative;
     width: 100%; /* The size you want */
-    border-radius: 5px 5px 0px 0px;
+    // border-radius: 5px 5px 0px 0px;
     overflow: hidden;
   }
   .img_wrapper:after {
