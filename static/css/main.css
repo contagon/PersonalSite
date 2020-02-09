@@ -156,8 +156,9 @@ div.contentblock.about {
   color: #ecf0f1;
   background: url('/static/img/byu.jpg');
   background-color: #4B4B4B;
-  background-size: cover;
   background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
 }
 div.contentblock.projects {
   background-color: #111111;
